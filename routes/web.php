@@ -11,9 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('front');
-});
-
+Route::get('/', 'pagesController@front');
+Route::get('/decks/investigator', 'pagesController@investigators');
 
 Route::resource('cards', 'CardsController');
+Route::resource('decks', 'DecksController');

@@ -5,28 +5,27 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\Http\Traits\CommonTrait;
 
-class Card extends Model
-{
+class Deck extends Model
+{   
 
     use CommonTrait;
 
-    /**
-     * Return the description title
-     */
+    // Fillable fields
+    protected $fillable = [
+        'title', 'description'
+    ];
+
     public function description(): string
     {
-        if ($desc = $this->text) {
+        if ($desc = $this->description) {
             return $desc;
         }
         return '';
     }
 
-    /**
-     * Return the card title
-     */
-    public function title(): string 
+    public function title(): string
     {
-        if ($title = $this->name) {
+        if ($title = $this->title) {
             return $title;
         }
         return '';

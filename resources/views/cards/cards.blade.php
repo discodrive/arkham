@@ -3,16 +3,20 @@
 @section('title', 'Arkham Horror - Cards')
 
 @section('body')
+<section class="filters">
+    
+</section>
+
 <ul class="columns is-multiline">
     @foreach ($cards as $card)
         <li class="column is-one-quarter">
             <section class="c-single-card">
-                <a href="/cards/{{ $card->id }}">
-                    <h3>{{ $card->name }}</h3>
-                    <div class="c-single-desc">{{ $card->text }}</div>
+                <a href="/cards/{{ $card->id() }}">
+                    <h3>{{ $card->title() }}</h3>
+                    <div class="c-single-desc">{{ $card->description() }}</div>
                 </a>
 
-                <form method="POST" action="/cards/{{ $card->id }}">
+                {{-- <form method="POST" action="/cards/{{ $card->id }}">
                     {{ method_field('DELETE') }}
                     {{ csrf_field() }}
                     <a href="/cards/{{ $card->id }}/edit" class="button is-link is-outlined">Edit</a>
@@ -22,7 +26,7 @@
                             <i class="fas fa-times"></i>
                         </span>
                     </button>       
-                </form>
+                </form> --}}
             </section>
         </li>
     @endforeach
